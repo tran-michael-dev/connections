@@ -1,17 +1,13 @@
 import './Word.css'
 import { useState } from 'react'
 
-function Word({ word }) {
-	const [ selected, setSelected ] = useState(false);
-	const handleClick = () => {
-		setSelected(prev => !prev);
-	}
+function Word({ word, selected, selectWord }) {
 
 	return (
 		<>
 			<button 
 			className={`word-btn ${selected ? '--active' : ''}`}
-			onClick={handleClick}
+			onClick={selectWord}
 			>
 				{word.name}
 			</button>
