@@ -9,13 +9,12 @@ function App() {
   const {
     words,
     selectedWords,
+    lives,
 		selectWord,
     shuffleWords,
     deselectAll,
     submitWords
   } = useWords();
-
-  
 
   return (
     <>
@@ -31,10 +30,9 @@ function App() {
       </div>
       <div className="lives">
         <p>Mistakes Remaining: </p>
-        <Life />
-        <Life />
-        <Life />
-        <Life />
+        {Array.from({ length: lives }).map((_, index) => (
+          <Life key={index} />
+        ))}
       </div>
       <div className="buttons">
         <Button name={"Shuffle"} func={() => shuffleWords()}/>

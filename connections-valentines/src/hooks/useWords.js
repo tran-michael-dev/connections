@@ -5,7 +5,7 @@ import shuffle from "../functions/shuffle"
 function useWords() {
 	const [ words, setWords ] = useState(WORDS)
 	const [ selectedWords, setSelectedWords ] = useState([])
-	const [ lives, setLives ] = useState([4])
+	const [ lives, setLives ] = useState(4)
 
 	// Select a word, only up to four words can be selected
 	const selectWord = (word) => {
@@ -34,22 +34,37 @@ function useWords() {
 	// If selected 4 words, submit and check if they belong in they same category. If so delete them
 	// If not, take off a life.
 	const submitWords = () => {
-		setSelectedWords(prev => {
-			if (selectedWords.length < 4) return prev;
-			if (selectedWords.length === 4) {
+		if (selectedWords.length < 4) return;
 
-				return [];
-			};
-		})
-	}
+		const correct =
+			selectedWords.every(w => w.difficulty === selectedWords[0].difficulty);
+			
+		if (correct) {
+			deleteWords(selectedWords);
+		} else {
+			removeLife();
+		}
+		setSelectedWords([]);
+	};
+
+	// Deletes all words selected from words array
+	const deleteWords = (toDelete) => {
+  setWords(prev =>
+    prev.filter(w => !toDelete.includes(w)));
+	};
+
+	const removeLife = () => {
+  setLives(prev => Math.max(prev - 1, 0));
+};
 
 	return {
 		words,
 		selectedWords,
+		lives,
 		selectWord,
 		shuffleWords,
 		deselectAll,
-		submitWords
+		submitWords,
 	};
 }
 
