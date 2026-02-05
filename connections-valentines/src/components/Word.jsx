@@ -1,8 +1,6 @@
 import './Word.css'
-import { useState } from 'react'
 
 function Word({ word, selected, selectWord }) {
-
 	return (
 		<>
 			<button 

@@ -1,0 +1,8 @@
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgb(130, 130, 130);
+  position: relative;
+  top: 22.5px;
+}

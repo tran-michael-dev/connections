@@ -5,10 +5,20 @@ html, body {
 body {
   display: grid;
   place-items: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .words {
   display: grid;
   grid-template-columns: repeat(4, 200px);
-  gap: 20px
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.lives {
+  display: grid;
+  grid-template-columns: 200px repeat(4, 40px);
+  position: relative;
+  left: 240px;
+  font-size: 20px;
 }
