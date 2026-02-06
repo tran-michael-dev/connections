@@ -1,11 +1,17 @@
-import { useState } from "react"
+import { use, useState } from "react"
 import WORDS from "../data/words"
 import shuffle from "../functions/shuffle"
+import useBanners from "./useBanners";
 
 function useWords() {
-	const [ words, setWords ] = useState(WORDS)
-	const [ selectedWords, setSelectedWords ] = useState([])
-	const [ lives, setLives ] = useState(4)
+	const [
+		activeBanners,
+		addBanner
+	] = useBanners();
+
+	const [ words, setWords ] = useState(WORDS);
+	const [ selectedWords, setSelectedWords ] = useState([]);
+	const [ lives, setLives ] = useState(4);
 
 	// Select a word, only up to four words can be selected
 	const selectWord = (word) => {
@@ -41,6 +47,7 @@ function useWords() {
 			
 		if (correct) {
 			deleteWords(selectedWords);
+			addBanner(selectedWords[0].difficulty)
 		} else {
 			removeLife();
 		}
@@ -58,6 +65,7 @@ function useWords() {
 };
 
 	return {
+		activeBanners,
 		words,
 		selectedWords,
 		lives,

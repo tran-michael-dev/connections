@@ -1,3 +1,5 @@
+import Banner from "./components/Banner";
+import BANNERS from "./data/banners";
 import Word from "./components/Word"
 import Button from "./components/Button";
 import './App.css'
@@ -7,6 +9,7 @@ import Life from "./components/Life";
 // App function that holds main jsx code
 function App() {
   const {
+    activeBanners,
     words,
     selectedWords,
     lives,
@@ -18,6 +21,15 @@ function App() {
 
   return (
     <>
+      <div className="banners">
+        {activeBanners.map(banner => (
+          <Banner 
+          key={banner.id}
+          color={banner.color}
+          category={banner.category}
+          />
+        ))}
+      </div>
       <div className="words">
         {words.map(word => (
           <Word 

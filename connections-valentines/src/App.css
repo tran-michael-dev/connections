@@ -8,6 +8,11 @@ body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.banners {
+  display: grid;
+  gap: 20px;
+}
+
 .words {
   display: grid;
   grid-template-columns: repeat(4, 200px);
