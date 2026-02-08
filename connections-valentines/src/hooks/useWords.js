@@ -81,7 +81,7 @@ function useWords() {
 				// Compute win based on what the new activeBanners length *will be*
 				const futureBannerCount = activeBanners.length + 1;
 				const newWin = futureBannerCount === 4;
-				setWin(newWin);
+				setWin(prev => prev || newWin);
 
 				// Immediately set Valentine words if the player won
 				if (newWin) {

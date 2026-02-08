@@ -1,5 +1,14 @@
 html, body {
   height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.connections {
+  background-color: antiquewhite;
+  transition: background-color 1s ease-in-out;
+  min-height: 100vh;
+  width: 100vw;
 }
 
 .header {
@@ -7,16 +16,16 @@ html, body {
   flex-direction: column;
   align-items: center; /* center content inside header */
   justify-content: center;
-  gap: 0px;
-  height: 100px;
+  height: 65px;
   position: relative;
-  top: 30px;
+  top: 60px;
+  margin-bottom: 20px;
+  transition: ease-in-out;
 }
 
 .title {
-  height: 20px;
+  height: 15px;
   font-size: 100px;
-  
 }
 
 .date {
@@ -26,27 +35,31 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  align-items: center; /* center everything horizontally */
+  align-items: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   min-height: 100vh;
   margin: 0;
 }
 
+.body {
+  position: relative;
+  top: 124px;
+}
+
 .banners {
   display: grid;
   gap: 20px;
-  padding-top: 124px;
-  justify-content: center; /* <-- center banner items horizontally */
-  width: 100%;             /* optional, ensures full width container */
+  justify-content: center;
+  width: 100%;
 }
 
 .words {
   display: grid;
-  width: 100%; /* container takes full width */
+  width: 100%;
   grid-template-columns: repeat(4, 200px);
   gap: 20px;
-  justify-content: center; /* center grid items */
-  padding-bottom: 20px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .words.--win {
@@ -57,7 +70,8 @@ body {
 .lives {
   display: flex;
   gap: 10px;
-  justify-content: center; /* center lives */
+  justify-content: center;
+  font-size: 20px;
   margin-top: 20px;
 }
 
@@ -66,4 +80,8 @@ body {
   gap: 20px;
   justify-content: center; /* center buttons */
   margin-top: 20px;
+}
+
+.--valSubmitted {
+  background-color: #ffd1dc;
 }

@@ -1,7 +1,7 @@
 import './Life.css'
 import {motion} from 'framer-motion'
 
-function Life({animateLoss}) {
+function Life({animateLoss, isAlive}) {
   const style = {
     borderRadius: '50px',
     width: '20px',
@@ -12,12 +12,14 @@ function Life({animateLoss}) {
   return (
     <motion.div 
     className="circle"
-    animate={
-      animateLoss
-        ? { scale: [1, 1.4, 0], opacity: [1, 1, 0] }
-        : { scale: 1, opacity: 1 }
-    }
-    transition={{ duration: 0.4, ease: "easeInOut" }}
+    animate={{
+        opacity: isAlive ? 1 : 0,
+        scale: isAlive ? 1 : 0.6
+      }}
+    transition={{
+      duration: animateLoss ? 0.3 : 0.15,
+      ease: "easeOut"
+    }}
     >
     </motion.div>
   )
