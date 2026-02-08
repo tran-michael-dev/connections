@@ -85,3 +85,17 @@ body {
 .--valSubmitted {
   background-color: #ffd1dc;
 }
+
+.heart-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none; /* clicks pass through */
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  font-size: 24px;
+  opacity: 0.6;
+}

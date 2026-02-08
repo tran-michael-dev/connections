@@ -33,6 +33,34 @@ function App() {
   return (
     <>
       <div className={`connections ${valentineSubmitted ? '--valSubmitted' : ''}`}>
+        {valentineSubmitted 
+        ? <div className="heart-bg">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <motion.div
+              key={i}
+              className="heart"
+              initial={{
+                y: -50,
+                x: Math.random() * window.innerWidth,
+                rotate: 0,
+                opacity: 0.6
+              }}
+              animate={{
+                y: "110vh",
+                rotate: 360
+              }}
+              transition={{
+                duration: 8 + Math.random() * 6,
+                repeat: Infinity,
+                ease: "linear",
+                delay: Math.random() * 5
+              }}
+            >
+              ❤️
+            </motion.div>
+          ))}
+        </div>
+        : undefined}
         <div className="header">
           <h1 className="title">{`${valentineSubmitted ? "Valentines" : "Connections"}`}</h1>
           <p className="date">{valentineSubmitted ? valentineDate : currentDate}</p>
@@ -82,7 +110,7 @@ function App() {
           <div className="buttons">
             <Button name={"Shuffle"} func={() => shuffleWords()}/>
             <Button name={"Deselect All"} func={() => deselectAll()}/>
-            <Button name={"Submit"} func={() => submitWords()} canPress={selectedWords.length === 4 || win}/>
+            <Button name={win ? "Yes" : "Submit"} func={() => submitWords()} canPress={selectedWords.length === 4 || win}/>
           </div>
         </div>
       </div>
